@@ -51,7 +51,45 @@ let tables = [
 
     ]
     
+    
+    function specialEvent(){
+       let specialEvent = [
+        ` Um Fantasma passa pelo grupo. Todas as personagems devem passar numa 
+        rolagem contra medo nível 4 ou perder 1 de vida. Um clérigo adiciona seu nível 
+        a essa rolagem.`,
 
+        `Monstros Errantes atacam o grupo. Role um d6: 1-3 uma rolagem na tabela de 
+        vermes, 4 rolagem na tabela de capangas, 5 rolagem na tabela de monstros bizarros,
+        6 rolagem na tabela de chefões. Role novamente todos os dragões pequenos. 
+        Um monstro chefão que é encontrado como um monstro errante não tem chance 
+        de ser o chefão final`,
+
+        `Uma mulher de branco aparece e pede para o grupo completar uma missão. Se 
+        você aceitar, faça uma rolagem na Tabela de Missão. Se você recusar, ela
+        desaparece. Ignore qualquer outra aparição da Mulher de Branco no jogo`,
+        
+        `Armadilha! Faça uma rolagem na tabela de armadilhas.`,
+
+        `Você encontra um curandeiro nômade. Ele vai curar o seu grupo por 10 peças 
+        de ouro por ponto de vida curado. Você pode curar quantos pontos de vida você 
+        puder pagar. Você só pode encontrar o curandeiro uma vez por jogo. Se você 
+        encontrá-lo de novo, role novamente o resultado.`,
+
+        `Você encontra um alquimista nômade. Ele lhe venderá até uma poção de cura 
+        por membro do grupo (50 peças de ouro cada) ou uma única dose de veneno 
+        para lâmina (30 peças de ouro). A poção de cura irá curar todos os pontos vitais 
+        perdidos de um único personagem e pode ser engolida a qualquer momento 
+        durante o jogo como uma ação livre. O veneno da lâmina permite envenenar 
+        uma única flecha ou arma cortante (não uma arma esmagadora). Essa arma terá 
+        +1 no Ataque contra o primeiro inimigo que você lutar. O veneno não funciona 
+        em monstros mortos-vivos, demônios, gosmas, autômatos ou estátuas vivas. 
+        Você pode encontrar um alquimista nômade apenas uma vez por jogo. Se você 
+        encontrá-lo novamente, trate este resultado como uma armadilha e role na
+        Tabela de Armadilhas`
+       ]
+
+       return specialEvent[Math.floor( Math.random()*specialEvent.length )]
+    }
 
 
 function roolTrapsTable(){
@@ -139,7 +177,12 @@ function renderGame(){
     }
 
     else if (evento === 'trapAndTreasure'){
-        document.querySelector("#rollResult").innerHTML += roolTrapsTable() +`<br/>` + roolTreasureTable() 
+        document.querySelector("#rollResult").innerHTML += roolTrapsTable() +`<br/>`
+        + roolTreasureTable() 
+    }
+
+    else if (evento === 'specialEvent'){
+        document.querySelector("#rollResult").innerHTML += specialEvent() 
     }
 
 }
